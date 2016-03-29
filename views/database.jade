@@ -3,23 +3,36 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 append styles
 	link(href="stylesheets/style.css")
 block body
-	<div class="jumbotron">
-	<h1>#{title} </h1>
-	p Welcome to #{title}
-	<a class="btn btn-primary btn-lg" href="http://localhost:3000" role="button">Home</a>
-	<a class="btn btn-primary btn-lg" href="http://localhost:3000/database" role="button">Database  <span class="glyphicon glyphicon-search"></span></a>
-	</div>
-	
-	p Database Search
+	.jumbotron
+		<h1>#{title} </h1>
+		p Welcome to #{title}
+		<a class="btn btn-primary btn-lg" href="http://localhost:3000" role="button">Home</a>
+		<a class="btn btn-primary btn-lg" href="http://localhost:3000/database" role="button">Database  <span class="glyphicon glyphicon-search"></span></a>
+	<center>
+	p Database Search For Tags
 	.container
 		form(action="/database", method="get")
-			input(type="text", name="searchString")
+			input(type="text", name="tagString")
 			input(type="submit")
 	
 	
-	p
-	p Your Search Results:
-	p #{query}
+	p Database Search For Strings
+	.container
+		form(action="/database", method="get")
+			input(type="text", name="nameString")
+			input(type="submit")
+			
+			
+	</center>
+	.container
+		+accordion("Results")
+		+accordion-item-primary("Results","sample","true")
+			#{query}
+		+accordion-item-default("Results","sample")
+		
+		+accordion-item-default("Results","sample")
+		
+		
 	
 
 	
