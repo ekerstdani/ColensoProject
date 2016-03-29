@@ -3,11 +3,16 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 append styles
 	link(href="stylesheets/style.css")
 block body
+	+nav-pills-justified([{text:"Home",href:"http://localhost:3000"},{text:"Database",href:"http://localhost:3000/database"},{text:"Message",href:"#"}],0)
+
+
+
+
+
 	.jumbotron
 		<h1>#{title} </h1>
 		p Welcome to #{title}
-		<a class="btn btn-primary btn-lg" href="http://localhost:3000" role="button">Home</a>
-		<a class="btn btn-primary btn-lg" href="http://localhost:3000/database" role="button">Database  <span class="glyphicon glyphicon-search"></span></a>
+		
 	
 	p The Colenso Society, Victoria University of Wellington and MTG Hawke's Bay are delighted to announce the establishment of the Colenso Project. This exciting new initiative seeks to build on the blossoming national and international interest in William Colenso’s life and ideas as the result of the William Colenso Bicentenary Celebrations in Hawke’s Bay in 2011, and a body of new publications and research.
 

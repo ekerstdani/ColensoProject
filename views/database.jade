@@ -3,12 +3,13 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 append styles
 	link(href="stylesheets/style.css")
 block body
+
+	+nav-pills-justified([{text:"Home",href:"http://localhost:3000"},{text:"Database",href:"http://localhost:3000/database"},{text:"Message",href:"#"}],1)
+	
 	.jumbotron
 		<h1>#{title} </h1>
 		p Welcome to #{title}
-		<a class="btn btn-primary btn-lg" href="http://localhost:3000" role="button">Home</a>
-		<a class="btn btn-primary btn-lg" href="http://localhost:3000/database" role="button">Database  <span class="glyphicon glyphicon-search"></span></a>
-	<center>
+	<center>	
 	p Database Search For Tags
 	.container
 		form(action="/database", method="get")
@@ -26,11 +27,13 @@ block body
 	</center>
 	.container
 		+accordion("Results")
-		+accordion-item-primary("Results","sample","true")
-			#{query}
-		+accordion-item-default("Results","sample")
 		
-		+accordion-item-default("Results","sample")
+		- for (var x = 0; x < length; x++)
+			+accordion-item-default("Result "+ (x+1),"sample",true)
+				p #{query[x]}	
+		
+		
+		
 		
 		
 	
