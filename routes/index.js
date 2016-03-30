@@ -20,6 +20,13 @@ router.get("/",function(req,res){
   );
 });
 
+///////////////////////////////////////////////////////
+
+
+
+
+
+
 
 /* GET View page. */
 router.get('/view', function(req, res, next) {
@@ -114,22 +121,5 @@ router.get('/browse', function(req, res, next) {
 });
 
 
-//
 
-/*
-router.get('/document/view', function(req, res) {
-    if(req.query.doc!=undefined){
-        console.log(req.query.doc);
-        client.execute("XQUERY doc('Colenso/"+req.query.doc+"')",
-            function (error, result) {
-                if(error){ console.error(error);}
-                else {
-                    res.render('open', { content: result.result, title: req.query.doc, download: "/document/download?doc="+req.query.doc });
-                }
-            }
-        );
-    } else {
-        res.render('open', { content: req.query.doc });
-    }
-});*/
 module.exports = router;

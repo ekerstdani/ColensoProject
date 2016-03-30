@@ -11,9 +11,9 @@ block body
 		p Welcome to #{title}
 		
 		
-	.container
-		h2 List of files
+	
+	h2 List of files
       
-		each item in place
-			+list-group-links([{text: item, url:item}])
+	each item in place
+		+list-group-links([{text:item, url:"/open?path="+item}])
 			
