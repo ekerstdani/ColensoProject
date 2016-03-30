@@ -10,4 +10,14 @@ block body
 		<h1>#{title} </h1>
 		
 		
-	p !{place}
+	.container
+			
+			
+		
+			
+		+accordion("Results")
+			+accordion-item-default("Result With Tags","sample",true)
+				p #{place}
+		
+			+accordion-item-default("Result Without Tags","sample",true)
+				p !{place}
