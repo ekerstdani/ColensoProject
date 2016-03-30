@@ -3,11 +3,32 @@ extends ../node_modules/jade-bootstrap/_bootstrap
 append styles
 	link(href="stylesheets/style.css")
 block body
+	+nav-pills-justified([{text:"Home",href:"http://localhost:3000"},{text:"Database",href:"http://localhost:3000/database"},{text:"Search",href:"http://localhost:3000/search"},{text:"View",href:"http://localhost:3000/view"},{text:"Browse",href:"http://localhost:3000/browse"}],2)
+
+
+
+
+
 	.jumbotron
 		<h1>#{title} </h1>
 		p Welcome to #{title}
-		<a class="btn btn-primary btn-lg" href="http://localhost:3000" role="button">Home</a>
-		<a class="btn btn-primary btn-lg" href="http://localhost:3000/database" role="button">Database  <span class="glyphicon glyphicon-search"></span></a>
 		
-	p Your Search Results:
-	p #{query}
+		
+	p Your Search Results for #{search}:
+	
+	if query== undefined
+		.container
+			p Nothing was Searched
+	
+	else
+		.container
+	
+			+accordion("Results")
+		
+			- for (var x = 0; x < query.length; x++)
+				+accordion-item-default("Result "+ (x+1),"sample",true)
+					p #{query[x]}	
+
+					
+				
+	+a-btn("#") Next Page

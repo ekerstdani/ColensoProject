@@ -1,0 +1,47 @@
+extends layout
+extends ../node_modules/jade-bootstrap/_bootstrap
+append styles
+	link(href="stylesheets/style.css")
+block body
+	+nav-pills-justified([{text:"Home",href:"http://localhost:3000"},{text:"Search",href:"http://localhost:3000/view"},{text:"Browse",href:"http://localhost:3000/browse"}],1)
+
+
+	.jumbotron
+		<h1>#{title} </h1>
+		p Welcome to #{title}
+		
+	.container
+	+tab-list(["Text", "Logical","Query"],0)
+		+tab("Text","active")
+			
+			form(action="/view", method="get")
+				+input('text', 'Title', 'Enter Text', '', 'Title')              
+				+submit("Submit")
+					
+		+tab("Logical")
+			
+			form(action="/view",method="get")
+				+input('text','File','Logic Search','','logicQuery')
+				+submit("Submit")
+					
+					
+		+tab("Query")
+			
+			form(action="/view",method="get")
+				+input('text','queryFile','Query Search','','queryFile')
+				+submit("Submit")
+					
+	
+
+			
+			
+	.container
+		- var x=0;
+		+accordion("Results")
+		
+		
+		each item in results
+			-x++;
+			+accordion-item-default("Result "+x,"sample",true)
+				+list-group-links([{text:item, url:"/open?path="+item}])		
+			

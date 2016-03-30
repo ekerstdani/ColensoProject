@@ -1,0 +1,13 @@
+extends layout
+extends ../node_modules/jade-bootstrap/_bootstrap
+append styles
+	link(href="stylesheets/style.css")
+block body
+	+nav-pills-justified([{text:"Home",href:"http://localhost:3000"},{text:"Search",href:"http://localhost:3000/view"},{text:"Browse",href:"http://localhost:3000/browse"}],2)
+
+
+	.jumbotron
+		<h1>#{title} </h1>
+		p Welcome to #{title}
+		
+		p !{place}

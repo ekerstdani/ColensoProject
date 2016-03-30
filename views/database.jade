@@ -4,34 +4,25 @@ append styles
 	link(href="stylesheets/style.css")
 block body
 
-	+nav-pills-justified([{text:"Home",href:"http://localhost:3000"},{text:"Database",href:"http://localhost:3000/database"},{text:"Message",href:"#"}],1)
+	+nav-pills-justified([{text:"Home",href:"http://localhost:3000"},{text:"Database",href:"http://localhost:3000/database"},{text:"Search",href:"http://localhost:3000/search"},{text:"View",href:"http://localhost:3000/view"},{text:"Browse",href:"http://localhost:3000/browse"}],1)
 	
 	.jumbotron
 		<h1>#{title} </h1>
 		p Welcome to #{title}
 	<center>	
-	p Database Search For Tags
+	p Database Search 
 	.container
-		form(action="/database", method="get")
+		form(action="/search", method="get")
 			input(type="text", name="tagString")
 			input(type="submit")
 	
 	
-	p Database Search For Strings
-	.container
-		form(action="/database", method="get")
-			input(type="text", name="nameString")
-			input(type="submit")
+	
 			
-			
+		
 	</center>
-	.container
-		+accordion("Results")
-		
-		- for (var x = 0; x < length; x++)
-			+accordion-item-default("Result "+ (x+1),"sample",true)
-				p #{query[x]}	
-		
+	
+			
 		
 		
 		
