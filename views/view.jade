@@ -11,21 +11,20 @@ block body
 		p Welcome to #{title}
 		
 	.container
-	+tab-list(["Text", "Logical","Query"],0)
-		+tab("Text","active")
+	
 			
 			form(action="/view", method="get")
 				+input('text', 'Title', 'Enter Text', '', 'Title')              
 				+submit("Submit")
 					
-		+tab("Logical")
+		
 			
 			form(action="/view",method="get")
 				+input('text','File','Logic Search','','logicQuery')
 				+submit("Submit")
 					
 					
-		+tab("Query")
+		
 			
 			form(action="/view",method="get")
 				+input('text','queryFile','Query Search','','queryFile')
@@ -33,8 +32,8 @@ block body
 					
 	
 
-			
-			
+		
+		
 	.container
 		- var x=0;
 		+accordion("Results")
